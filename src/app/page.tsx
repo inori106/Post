@@ -16,6 +16,7 @@ export default function Home() {
             <Link
               href={path.link}
               className='text-xl text-green-400 font-semibold'
+              prefetch={true}
             >
               {path.name}
             </Link>

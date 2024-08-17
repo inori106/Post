@@ -13,7 +13,7 @@ const LinkButton: React.FC<ButtonProps> = ({
   ...props
 }: ButtonProps) => {
   return (
-    <Link href={href}>
+    <Link href={href} prefetch={true}>
       <button
         className={twMerge(
           `flex items-center justify-center px-4 py-2 w-16 h-10 rounded-md text-white font-semibold }`,
