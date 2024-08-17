@@ -2,7 +2,7 @@ import { postCategory } from '@/actions/postAction';
 import SubmitButton from '@/components/Button/SubmitButton';
 import Input from '@/components/Form/Input';
 
-export default async function CategoryAddPage() {
+export default function CategoryAddPage() {
   return (
     <div>
       <h1 className='text-2xl font-semibold mb-4'>カテゴリ追加</h1>
