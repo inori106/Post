@@ -1,6 +1,6 @@
 import { getArticles } from '@/utils/getArticle';
 import { Article } from '@/types/Article';
-import LinkButton from '@/components/LinkButton';
+import LinkButton from '@/components/Button/LinkButton';
 
 export default async function ArticlePage() {
   const articles = await getArticles();

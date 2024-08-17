@@ -1,12 +1,11 @@
 import { prisma, connect } from '@/utils/prisma';
 
 export const getCategories = async () => {
-  await connect();
   try {
     const categories = await prisma.category.findMany();
     return categories;
   } catch (error) {
-    console.error(error);
+    throw new Error('カテゴリーの取得に失敗しました');
   }
 };
 
@@ -18,6 +17,6 @@ export const getCategoryDetail = async (id: string) => {
     });
     return category;
   } catch (error) {
-    console.error(error);
+    throw new Error('カテゴリーの取得に失敗しました');
   }
 };

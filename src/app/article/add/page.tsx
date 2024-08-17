@@ -1,8 +1,9 @@
 import { postArticle } from '@/actions/postAction';
 import { getCategories } from '@/utils/getCategory';
-import SubmitButton from '@/components/SubmitButton';
+import SubmitButton from '@/components/Button/SubmitButton';
 import { Category } from '@/types/Category';
-
+import Input from '@/components/Form/Input';
+import TextArea from '@/components/Form/TextArea';
 export default async function ArticleAddPage() {
   const categories = await getCategories();
 
@@ -15,18 +16,8 @@ export default async function ArticleAddPage() {
           await postArticle(formdata);
         }}
       >
-        <label className='text-xl font-semibold'>タイトル</label>
-        <input
-          type='text'
-          name='title'
-          className='py-3 mt-1 px-2 w-full rounded-md border-2 border-gray-700 mb-3'
-        />
-        <label className='text-xl font-semibold'>本文</label>
-        <textarea
-          name='content'
-          rows={15}
-          className='py-3 mt-1 px-2 w-full rounded-md border-2 border-gray-700'
-        />
+        <Input label='タイトル' name='title' type='text' className='mb-3' />
+        <TextArea label='本文' name='content' rows={15} />
         <div className='my-3'>
           <label className='text-xl font-semibold'>カテゴリ</label>
           <ul className='md:flex md:space-x-2'>

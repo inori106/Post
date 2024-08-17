@@ -6,6 +6,6 @@ export async function connect() {
   try {
     await prisma.$connect();
   } catch (error) {
-    return Error('Failed to connect to the database');
+    throw new Error('データベースへの接続に失敗しました');
   }
 }

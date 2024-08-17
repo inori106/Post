@@ -6,7 +6,7 @@ export const getArticles = async () => {
     const articles = await prisma.article.findMany();
     return articles;
   } catch (error) {
-    console.error(error);
+    throw new Error('記事の取得に失敗しました');
   } finally {
     await prisma.$disconnect();
   }
@@ -21,7 +21,7 @@ export const getArticleDetail = async (id: string) => {
     });
     return article;
   } catch (error) {
-    console.error(error);
+    throw new Error('記事の取得に失敗しました');
   } finally {
     await prisma.$disconnect();
   }

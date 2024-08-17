@@ -1,6 +1,6 @@
 import { getCategories } from '@/utils/getCategory';
 import { Category } from '@/types/Category';
-import LinkButton from '@/components/LinkButton';
+import LinkButton from '@/components/Button/LinkButton';
 
 export default async function CategoryPage() {
   const categories = await getCategories();

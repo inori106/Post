@@ -1,5 +1,6 @@
 import { postCategory } from '@/actions/postAction';
-import SubmitButton from '@/components/SubmitButton';
+import SubmitButton from '@/components/Button/SubmitButton';
+import Input from '@/components/Form/Input';
 
 export default async function CategoryAddPage() {
   return (
@@ -11,12 +12,7 @@ export default async function CategoryAddPage() {
           await postCategory(formdata);
         }}
       >
-        <label className='text-xl font-semibold'>カテゴリ名</label>
-        <input
-          type='text'
-          name='name'
-          className='py-3 mt-1 px-2 w-full rounded-md border-2 border-gray-700 mb-3'
-        />
+        <Input label='カテゴリ名' name='name' type='text' className='mb-3' />
         <SubmitButton className='bg-green-400 hover:bg-green-300'>
           追加
         </SubmitButton>

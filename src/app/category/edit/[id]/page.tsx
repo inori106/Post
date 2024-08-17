@@ -1,6 +1,7 @@
 import { getCategoryDetail } from '@/utils/getCategory';
 import { updateCategory, deleteCategory } from '@/actions/editAction';
-import SubmitButton from '@/components/SubmitButton';
+import SubmitButton from '@/components/Button/SubmitButton';
+import Input from '@/components/Form/Input';
 
 export default async function EditPage({ params }: { params: { id: string } }) {
   const category = await getCategoryDetail(params.id);
@@ -11,12 +12,11 @@ export default async function EditPage({ params }: { params: { id: string } }) {
       <h1 className='text-2xl font-semibold mb-4'>カテゴリーの編集</h1>
       <form>
         <div className='mb-3'>
-          <label className='text-xl font-semibold'>カテゴリー名</label>
-          <input
-            type='text'
+          <Input
+            label='カテゴリー名'
             name='name'
+            type='text'
             defaultValue={category.name}
-            className='py-3 mt-1 px-2 w-full rounded-md border-2 border-gray-700'
           />
         </div>
         <div className='flex space-x-3 '>

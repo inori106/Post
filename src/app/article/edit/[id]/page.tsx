@@ -1,8 +1,10 @@
 import { getArticleDetail } from '@/utils/getArticle';
 import { updateArticle, deleteArticle } from '@/actions/editAction';
-import SubmitButton from '@/components/SubmitButton';
+import SubmitButton from '@/components/Button/SubmitButton';
 import { getCategories } from '@/utils/getCategory';
 import { Category } from '@/types/Category';
+import Input from '@/components/Form/Input';
+import TextArea from '@/components/Form/TextArea';
 
 export default async function ArticleEditPage({
   params,
@@ -19,19 +21,18 @@ export default async function ArticleEditPage({
     <div>
       <h1 className='text-2xl font-semibold mb-4'>記事の編集</h1>
       <form>
-        <label className='text-xl font-semibold'>タイトル</label>
-        <input
-          type='text'
+        <Input
+          label='タイトル'
           name='title'
+          type='text'
+          className='mb-3'
           defaultValue={post.title}
-          className='py-3 mt-1 px-2 w-full rounded-md border-2 border-gray-700 mb-3'
         />
-        <label className='text-xl font-semibold'>本文</label>
-        <textarea
+        <TextArea
+          label='本文'
           name='content'
-          defaultValue={post.content}
           rows={15}
-          className='py-3 mt-1 px-2 w-full rounded-md border-2 border-gray-700'
+          defaultValue={post.content}
         />
         <div className='my-3'>
           <label className='text-xl font-semibold'>カテゴリー</label>

@@ -8,7 +8,7 @@ export const updateArticle = async (id: string, FormData: FormData) => {
   const categoriesId = FormData.getAll('categories') as string[];
   await connect();
   try {
-    const posts = await prisma.article.update({
+    await prisma.article.update({
       where: { id: id },
       data: {
         title: title,
@@ -20,45 +20,42 @@ export const updateArticle = async (id: string, FormData: FormData) => {
         },
       },
     });
-    return posts;
   } catch (error) {
-    console.error(error);
+    throw new Error('記事の更新に失敗しました');
   } finally {
     await prisma.$disconnect();
-    revalidatePath(`/article`);
-    redirect(`/article`);
   }
+  revalidatePath(`/article`);
+  redirect(`/article`);
 };
 
 export const deleteArticle = async (id: string) => {
   await connect();
   try {
-    const posts = await prisma.article.delete({
+    await prisma.article.delete({
       where: { id: id },
     });
-    return posts;
   } catch (error) {
-    console.error(error);
+    throw new Error('記事の削除に失敗しました');
   } finally {
     await prisma.$disconnect();
-    revalidatePath(`/article`);
-    redirect(`/article`);
   }
+  revalidatePath(`/article`);
+  redirect(`/article`);
 };
 
 export const updateCategory = async (id: string, FormData: FormData) => {
   const name = FormData.get('name') as string;
   await connect();
   try {
-    const categories = await prisma.category.update({
+    await prisma.category.update({
       where: { id: id },
       data: {
         name: name,
       },
     });
-    return categories;
   } catch (error) {
-    console.error(error);
+    throw new Error('カテゴリーの更新に失敗しました');
   } finally {
     await prisma.$disconnect();
     revalidatePath(`/category`);
@@ -69,15 +66,14 @@ export const updateCategory = async (id: string, FormData: FormData) => {
 export const deleteCategory = async (id: string) => {
   await connect();
   try {
-    const categories = await prisma.category.delete({
+    await prisma.category.delete({
       where: { id: id },
     });
-    return categories;
   } catch (error) {
-    console.error(error);
+    throw new Error('カテゴリーの削除に失敗しました');
   } finally {
     await prisma.$disconnect();
-    revalidatePath(`/category`);
-    redirect(`/category`);
   }
+  revalidatePath(`/category`);
+  redirect(`/category`);
 };

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import LinkButton from '@/components/LinkButton';
+import LinkButton from '@/components/Button/LinkButton';
+import Header from '@/components/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,20 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
-        <main className='px-4 lg:px-48 py-8'>
-          {children}
-          <div className='flex space-x-3'>
-            <LinkButton
-              href='/'
-              className='
-              mt-10 bg-blue-400 hover:bg-blue-300 w-20 h-12'
-            >
-              ホーム
-            </LinkButton>
-          </div>
-        </main>
+    <html lang='ja'>
+      <body className={`min-h-screen ${inter.className}`}>
+        <div className='max-w-4xl mx-auto py-10 px-4'>
+          <Header />
+          <main>{children}</main>
+        </div>
       </body>
     </html>
   );

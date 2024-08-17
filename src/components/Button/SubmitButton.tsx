@@ -1,6 +1,6 @@
 'use client';
 import { useFormStatus } from 'react-dom';
-import Loading from './Loading';
+import Loading from '@/components/Loading';
 import { twMerge } from 'tailwind-merge';
 import { useState } from 'react';
 
@@ -8,6 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
 }
+
 const SubmitButton: React.FC<ButtonProps> = ({
   children,
   className,

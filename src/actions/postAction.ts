@@ -21,17 +21,16 @@ export const postArticle = async (FormData: FormData) => {
       },
     });
   } catch (error) {
-    return Error('Failed to create post');
+    throw new Error('記事の投稿に失敗しました');
   } finally {
     await prisma.$disconnect();
-    revalidatePath('/article');
-    redirect('/article');
   }
+  revalidatePath('/article');
+  redirect('/article');
 };
 
 export const postCategory = async (FormData: FormData) => {
   const name = FormData.get('name') as string;
-  await connect();
   try {
     await prisma.category.create({
       data: {
@@ -39,10 +38,8 @@ export const postCategory = async (FormData: FormData) => {
       },
     });
   } catch (error) {
-    return Error('Failed to create category');
-  } finally {
-    await prisma.$disconnect();
-    revalidatePath('/category');
-    redirect('/category');
+    throw new Error('カテゴリーの追加に失敗しました');
   }
+  revalidatePath('/category');
+  redirect('/category');
 };
