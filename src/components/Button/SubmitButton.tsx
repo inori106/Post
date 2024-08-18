@@ -24,6 +24,7 @@ const SubmitButton: React.FC<ButtonProps> = ({
         className
       )}
       {...props}
+      type='submit'
       disabled={pending}
       onClick={() => setProcessing(true)}
     >
