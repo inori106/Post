@@ -9,20 +9,17 @@ const Paths = [
 
 export default function Home() {
   return (
-    <div>
-      <ul className='space-y-6'>
-        {Paths.map((path) => (
-          <li key={path.name}>
-            <Link
-              href={path.link}
-              className='text-xl text-green-400 font-semibold'
-              prefetch={true}
-            >
-              {path.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <div className='space-y-6'>
+      {Paths.map((path) => (
+        <Link
+          href={path.link}
+          className='text-xl text-green-400 font-semibold'
+          prefetch={true}
+          key={path.link}
+        >
+          {path.name}
+        </Link>
+      ))}
     </div>
   );
 }

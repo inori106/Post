@@ -8,7 +8,7 @@ export default async function CategoryPage() {
   return (
     <div>
       <h1 className='text-2xl font-semibold'>カテゴリ一覧</h1>
-      <ul className='space-y-4 mt-8'>
+      <div className='space-y-4 mt-8'>
         {categories.map((category: Category) => (
           <div key={category.id} className='flex items-center justify-between'>
             <h2 className='text-xl font-semibold'>{category.name}</h2>
@@ -20,7 +20,7 @@ export default async function CategoryPage() {
             </LinkButton>
           </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

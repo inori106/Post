@@ -8,7 +8,7 @@ export default async function ArticlePage() {
   return (
     <div>
       <h1 className='text-2xl font-semibold'>記事一覧</h1>
-      <ul className='space-y-4 mt-8'>
+      <div className='space-y-4 mt-8'>
         {articles.map((article: Article) => (
           <div
             key={article.id}
@@ -31,7 +31,7 @@ export default async function ArticlePage() {
             </div>
           </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
