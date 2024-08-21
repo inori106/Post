@@ -9,7 +9,7 @@ const Paths = [
 
 export default function Home() {
   return (
-    <div className='space-y-6'>
+    <div className='space-y-6 flex flex-col'>
       {Paths.map((path) => (
         <Link
           href={path.link}
